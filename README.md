@@ -19,8 +19,9 @@ JavaScript
   variancia: 1.2706894736842105,
   desvioPadrao: 1.1230395862120725
 }
-Use o código com cuidado. Saiba mais
-Como funciona:
+
+
+
 O código funciona da seguinte forma:
 
 A função separa a string de números em um array de números.
