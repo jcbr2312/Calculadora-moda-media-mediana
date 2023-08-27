@@ -1,0 +1,116 @@
+.navbar {
+    background-color: #333;
+    width: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+.navbar li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar a {
+    display: none;
+}
+
+.navbar li > p {
+    display: block;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.navbar li:hover > p {
+    cursor: pointer;
+}
+
+.navbar li:hover > a {
+    display: block;
+}
+
+/* Estilos para os botões responsivos */
+.navbar li > p {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+.result {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(120deg, #8a2be2, #ffd700);
+    animation: gradientAnimation 10s ease infinite;
+    background-size: 200% 200%;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.result-box {
+    background: linear-gradient(120deg, #f06, #fc0, #0cf, #f06);
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    text-align: right;
+}
+
+.result-details {
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.show-details .result-details {
+    opacity: 1;
+}
+
+.result-title {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 10px;
+    font-family: 'Arial', sans-serif;
+    color: #000a24;
+    text-transform: uppercase;
+}
+
+.result-highlight {
+    background: linear-gradient(120deg, #87cefa, #ff69b4);
+    animation: gradientAnimation 10s ease infinite;
+    background-size: 200% 200%;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    text-align: right;
+    color: white;
+    font-weight: bold;
+}
+
+.result-container {
+    background: linear-gradient(120deg, #f06, #fc0, #0cf, #f06);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
