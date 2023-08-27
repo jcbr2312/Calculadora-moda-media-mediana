@@ -4,7 +4,7 @@ Este código calcula a moda, mediana, média, variância e desvio padrão de um 
 
 Exemplo de uso:
 JavaScript
-const numeros = "1-2-3-3-4-5-5-6";
+const numeros = "10-20-20-30";
 const resultados = calcular(numeros);
 
 console.log(resultados);
@@ -13,11 +13,11 @@ A saída do código acima será:
 
 JavaScript
 {
-  moda: ["3"],
-  mediana: 3.5,
-  media: 3.875,
-  variancia: 1.2706894736842105,
-  desvioPadrao: 1.1230395862120725
+  moda: ["10"],
+  mediana: 20.0,
+  media: 20.0,
+  variancia: 50,
+  desvioPadrao: 7.07
 }
 
 
