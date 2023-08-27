@@ -3,125 +3,61 @@
 <head>
 <title>Calculadora de Moda, Mediana, Média, Desvio Padrão e Variância</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="Menu.css">
 <script src="calculadora.js"></script>
 <title>Barra de Menu</title>
-    <style>
-        /* Estilos para a barra de menu */
-        .navbar {
-            background-color: #333;
-            width: 100%;
-            position: fixed; /* Fixa a barra no topo da tela */
-            top: 0; /* Posiciona no topo da tela */
-            left: 0; /* Posiciona na esquerda da tela */
-            overflow: hidden;
-        }
-        
-        /* Estilos para os itens de menu */
-        .navbar a {
-            float: left;
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-        
-        /* Estilos para os itens de menu ao passar o mouse sobre eles */
-        .navbar a:hover {
-            background-color: #ddd;
-            color: black;
-        }
-    </style>
+<style>
+    /* Estilos para a barra de menu */
+    .navbar {
+        background-color: #333;
+        width: 100%;
+        position: fixed; /* Fixa a barra no topo da tela */
+        top: 0; /* Posiciona no topo da tela */
+        left: 0; /* Posiciona na esquerda da tela */
+        overflow: hidden;
+    }
+
+    /* Estilos para os itens de menu */
+    .navbar a {
+        float: left;
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    /* Estilos para os itens de menu ao passar o mouse sobre eles */
+    .navbar a:hover {
+        background-color: #ff0505;
+        color: black;
+    }
+</style>
 </head>
 <body>
 
-<div class="navbar">
-    <a href="#">Home</a>
-    <a href="#">Sobre</a>
-    <a href="#">Serviços</a>
-    <a href="#">Contato</a>
-</div>
-
-<style>
-    
-    .result {
-        opacity: 0;
-        transition: opacity 0.5s ease-in-out;
-    }
-
-    body {
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        background: linear-gradient(120deg, #8a2be2, #ffd700);
-        animation: gradientAnimation 10s ease infinite;
-        background-size: 200% 200%;
-    }
-
-    @keyframes gradientAnimation {
-        0% {
-            background-position: 0% 50%;
-        }
-        100% {
-            background-position: 100% 50%;
-        }
-    }
-
-    .result-box {
-        background: linear-gradient(120deg, #f06, #fc0, #0cf, #f06);
-        padding: 10px;
-        border-radius: 5px;
-        color: white;
-        font-weight: bold;
-        text-align: right;
-    }
-
-    .result-details {
-        background-color: white;
-        padding: 10px;
-        border-radius: 5px;
-        margin-top: 10px;
-        opacity: 0;
-        transition: opacity 0.5s ease-in-out;
-    }
-
-    .show-details .result-details {
-        opacity: 1;
-    }
-
-    .result-title {
-        font-size: 24px;
-        text-align: center;
-        margin-bottom: 10px;
-        font-family: 'Arial', sans-serif;
-        color: #000a24;
-        text-transform: uppercase;
-    }
-
-    .result-highlight {
-        background: linear-gradient(120deg, #87cefa, #ff69b4);
-        animation: gradientAnimation 10s ease infinite;
-        background-size: 200% 200%;
-        padding: 10px;
-        border-radius: 5px;
-        margin-top: 10px;
-        text-align: right;
-        color: white;
-        font-weight: bold;
-    }
-
-    .result-container {
-        background: linear-gradient(120deg, #f06, #fc0, #0cf, #f06);
-        padding: 20px;
-        border-radius: 10px;
-        margin-top: 20px;
-    }
-    
-</style>
-
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0);" onclick="location.reload();">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://github.com/jcbr2312/Calculadora-moda-media-mediana.git">Sobre</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0);" onclick="showServicesMessage();">Serviços</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0);" onclick="showContactMessage();">Contato</a>
+            </li>
+        </ul>
+    </div>
+</nav>
 </head>
 <body>
 
@@ -152,6 +88,16 @@
         </div>
     </div>
 </div>
+<script>
+    function showServicesMessage() {
+        alert("Em breve traremos atualizações nos serviços.");
+    }
+
+    function showContactMessage() {
+        alert("Você pode entrar em contato pelo email jean23122005@gmail.com.");
+    }
+</script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdn.rawgit.com/pupunzi/jquery.mb.YTPlayer/master/dist/jquery.mb.YTPlayer.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -159,4 +105,4 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
