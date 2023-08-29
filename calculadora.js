@@ -1,64 +1,82 @@
-function calcular() {
+function calcularEstatisticas() {
     var numerosStr = document.getElementById("numeros").value;
-    var numeros = numerosStr.split("-");
-    
-    var soma = 0;
-    for (var i = 0; i < numeros.length; i++) {
-        soma += parseFloat(numeros[i]);
+    var numeros = numerosStr.split("-").map(parseFloat);
+
+    if (!numeros.every(isFinite)) {
+        alert("Por favor, insira números válidos.");
+        return;
     }
-    var media = soma / numeros.length;
-    
-    numeros.sort(function(a, b) { return a - b; });
-    
-    var mediana;
-    if (numeros.length % 2 === 0) {
-        var meio1 = parseFloat(numeros[numeros.length / 2 - 1]);
-        var meio2 = parseFloat(numeros[numeros.length / 2]);
-        mediana = (meio1 + meio2) / 2;
+
+    var media = calcularMedia(numeros);
+    var mediana = calcularMediana(numeros);
+    var moda = calcularModa(numeros);
+    var variancia = calcularVariancia(numeros, media);
+    var desvioPadrao = Math.sqrt(variancia);
+
+    exibirResultado(moda, mediana, media, variancia, desvioPadrao);
+}
+
+function calcularMedia(numeros) {
+    var soma = numeros.reduce(function (acc, num) {
+        return acc + num;
+    }, 0);
+    return soma / numeros.length;
+}
+
+function calcularMediana(numeros) {
+    var sortedNumeros = numeros.slice().sort(function (a, b) {
+        return a - b;
+    });
+
+    if (sortedNumeros.length % 2 === 0) {
+        var meio1 = sortedNumeros[sortedNumeros.length / 2 - 1];
+        var meio2 = sortedNumeros[sortedNumeros.length / 2];
+        return (meio1 + meio2) / 2;
     } else {
-        mediana = parseFloat(numeros[Math.floor(numeros.length / 2)]);
+        return sortedNumeros[Math.floor(sortedNumeros.length / 2)];
     }
-    
+}
+
+function calcularModa(numeros) {
     var modaMap = {};
     var maxCount = 0;
     var moda = [];
-    for (var i = 0; i < numeros.length; i++) {
-        if (!modaMap[numeros[i]]) {
-            modaMap[numeros[i]] = 1;
-        } else {
-            modaMap[numeros[i]]++;
+
+    numeros.forEach(function (num) {
+        modaMap[num] = (modaMap[num] || 0) + 1;
+
+        if (modaMap[num] > maxCount) {
+            moda = [num];
+            maxCount = modaMap[num];
+        } else if (modaMap[num] === maxCount) {
+            moda.push(num);
         }
-        if (modaMap[numeros[i]] > maxCount) {
-            moda = [numeros[i]];
-            maxCount = modaMap[numeros[i]];
-        } else if (modaMap[numeros[i]] === maxCount) {
-            moda.push(numeros[i]);
-        }
-    }
+    });
+
+    return moda;
+}
+
+function calcularVariancia(numeros, media) {
+    var somaQuadrados = numeros.reduce(function (acc, num) {
+        return acc + Math.pow(num - media, 2);
+    }, 0);
+
+    return somaQuadrados / numeros.length;
+}
+
+function exibirResultado(moda, mediana, media, variancia, desvioPadrao) {
+    var modaText = moda.length > 0 ? "Moda: " + moda.join(", ") : "Não há moda";
+
     
-    var somaQuadrados = 0;
-    for (var i = 0; i < numeros.length; i++) {
-        somaQuadrados += Math.pow(parseInt(numeros[i]) - media, 2);
-    }
-    var variancia = somaQuadrados / numeros.length;
-    var desvioPadrao = Math.sqrt(variancia);
-
-    var modaText = "";
-    if (moda.length > 0) {
-        modaText = "Moda: " + moda.join(", ");
-    } else {
-        modaText = "Não há moda";
-    }
-
     document.getElementById("resultadoModa").textContent = modaText;
     document.getElementById("resultadoMediana").textContent = "Mediana: " + mediana.toFixed(2);
     document.getElementById("resultadoMedia").textContent = "Média: " + media.toFixed(2);
     document.getElementById("resultadoVariancia").textContent = "Variância: " + variancia.toFixed(2);
     document.getElementById("resultadoDesvioPadrao").textContent = "Desvio Padrão: " + desvioPadrao.toFixed(2);
-
+    
     var resultadoCampo = document.querySelector(".result");
     var resultadoDetails = document.querySelector(".result-details");
-
+    
     resultadoCampo.style.opacity = 1;
     resultadoDetails.classList.add("show-details");
 }
