@@ -51,7 +51,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(120deg, #8a2be2, #ffd700);
+    background: #0784cd;
     animation: gradientAnimation 10s ease infinite;
     background-size: 200% 200%;
 }
@@ -66,7 +66,7 @@ body {
 }
 
 .result-box {
-    background: linear-gradient(120deg, #f06, #fc0, #0cf, #f06);
+    background: linear-gradient(120deg, #f06, #fc0, #0cf, rgb(0, 0, 0));
     padding: 10px;
     border-radius: 5px;
     color: white;
@@ -97,19 +97,19 @@ body {
 }
 
 .result-highlight {
-    background: linear-gradient(120deg, #87cefa, #ff69b4);
+    background: #ffffff;
     animation: gradientAnimation 10s ease infinite;
     background-size: 200% 200%;
     padding: 10px;
     border-radius: 5px;
     margin-top: 10px;
     text-align: right;
-    color: white;
+    color: rgb(0, 0, 0);
     font-weight: bold;
 }
 
 .result-container {
-    background: linear-gradient(120deg, #f06, #fc0, #0cf, #f06);
+    background: linear-gradient(120deg, rgba(255, 20, 4, 0.938), rgb(19, 227, 78), rgb(25, 13, 185), rgb(255, 0, 0));
     padding: 20px;
     border-radius: 10px;
     margin-top: 20px;
