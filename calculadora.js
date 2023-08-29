@@ -4,7 +4,7 @@ function calcular() {
     
     var soma = 0;
     for (var i = 0; i < numeros.length; i++) {
-        soma += parseInt(numeros[i]);
+        soma += parseFloat(numeros[i]);
     }
     var media = soma / numeros.length;
     
@@ -12,11 +12,11 @@ function calcular() {
     
     var mediana;
     if (numeros.length % 2 === 0) {
-        var meio1 = parseInt(numeros[numeros.length / 2 - 1]);
-        var meio2 = parseInt(numeros[numeros.length / 2]);
+        var meio1 = parseFloat(numeros[numeros.length / 2 - 1]);
+        var meio2 = parseFloat(numeros[numeros.length / 2]);
         mediana = (meio1 + meio2) / 2;
     } else {
-        mediana = parseInt(numeros[Math.floor(numeros.length / 2)]);
+        mediana = parseFloat(numeros[Math.floor(numeros.length / 2)]);
     }
     
     var modaMap = {};
