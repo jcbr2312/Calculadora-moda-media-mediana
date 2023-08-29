@@ -65,8 +65,13 @@ function calcularVariancia(numeros, media) {
 }
 
 function exibirResultado(moda, mediana, media, variancia, desvioPadrao) {
-    var modaText = moda.length > 0 ? "Moda: " + moda.join(", ") : "Não há moda";
-
+    var modaText = "";
+    
+    if (moda.length > 0) {
+        modaText = "Moda: " + moda.join(", ");
+    } else {
+        modaText = "Não há moda";
+    }
     
     document.getElementById("resultadoModa").textContent = modaText;
     document.getElementById("resultadoMediana").textContent = "Mediana: " + mediana.toFixed(2);
@@ -80,3 +85,4 @@ function exibirResultado(moda, mediana, media, variancia, desvioPadrao) {
     resultadoCampo.style.opacity = 1;
     resultadoDetails.classList.add("show-details");
 }
+
