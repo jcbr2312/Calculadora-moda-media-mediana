@@ -9,7 +9,7 @@
 <style>
     /* Estilos para a barra de menu */
     .navbar {
-        background-color: #333;
+        background-color: #000000;
         width: 100%;
         position: fixed; /* Fixa a barra no topo da tela */
         top: 0; /* Posiciona no topo da tela */
@@ -21,7 +21,7 @@
     .navbar a {
         float: left;
         display: block;
-        color: white;
+        color: rgb(0, 0, 0);
         text-align: center;
         padding: 14px 16px;
         text-decoration: none;
@@ -29,7 +29,7 @@
 
     /* Estilos para os itens de menu ao passar o mouse sobre eles */
     .navbar a:hover {
-        background-color: #ff0505;
+        background-color: #000000;
         color: black;
     }
 </style>
@@ -67,9 +67,9 @@
             <h1>Calculadora de Moda, Mediana, Média, Desvio Padrão e Variância</h1>
             <label for="numeros">Digite os números separados por hífen:</label>
             <input type="text" id="numeros" class="form-control">
-            <button class="btn btn-success mt-3 w-100" style="background-color: #f30a0a;" onclick="calcular()">Calcular</button>
+            <button class="btn btn-success mt-3 w-100" style="background-color: #f30a0a;" onclick="calcularEstatisticas()">Calcular</button>
         </div>
-        <div class=col-md-6">
+        <div class="col-md-6">
             <div class="result mt-3">
                 <div class="result-container">
                     <div class="result-title">Resultados</div>
@@ -86,8 +86,7 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
+        
 <script>
     function showServicesMessage() {
         alert("Em breve traremos atualizações nos serviços.");
