@@ -1,5 +1,9 @@
 function calcularEstatisticas() {
     var numerosStr = document.getElementById("numeros").value;
+    
+    // Substituir vírgulas por pontos
+    numerosStr = numerosStr.replace(/,/g, '.');
+    
     var numeros = numerosStr.split("-").map(parseFloat);
 
     if (!numeros.every(isFinite)) {
@@ -15,6 +19,7 @@ function calcularEstatisticas() {
 
     exibirResultado(moda, mediana, media, variancia, desvioPadrao);
 }
+
 
 function calcularMedia(numeros) {
     var soma = numeros.reduce(function (acc, num) {
@@ -53,31 +58,36 @@ function calcularModa(numeros) {
         }
     });
 
-    return 0;
+    return moda;
 }
 
 function calcularVariancia(numeros, media) {
     var somaQuadrados = numeros.reduce(function (acc, num) {
-        return acc + Math.pow(num - media, 2);
-    }, 0);
+        return acc.plus(new Decimal(num).minus(media).pow(2));
+    }, new Decimal(0));
 
-    return somaQuadrados / numeros.length;
+    // Usar (numeros.length - 1) para o desvio padrão da amostra
+    variancia = somaQuadrados.div(numeros.length - 1);
+
+    return variancia.toFixed(2).toString(); // Usar o Decimal.js para arredondar
 }
-
 function exibirResultado(moda, mediana, media, variancia, desvioPadrao) {
     var modaText = "";
     
-    if (moda.length > 1) {
+    if (moda.length > 0) {
         modaText = "Moda: " + moda.join(", ");
     } else {
         modaText = "Não há moda";
     }
+
+    // Usar o método toString() do Decimal.js para converter o resultado em string
+    variancia = variancia.toString();
     
     document.getElementById("resultadoModa").textContent = modaText;
-    document.getElementById("resultadoMediana").textContent = "Mediana: " + mediana.toFixed(2);
-    document.getElementById("resultadoMedia").textContent = "Média: " + media.toFixed(2);
-    document.getElementById("resultadoVariancia").textContent = "Variância: " + variancia.toFixed(2);
-    document.getElementById("resultadoDesvioPadrao").textContent = "Desvio Padrão: " + desvioPadrao.toFixed(2);
+    document.getElementById("resultadoMediana").textContent = "Mediana: " + mediana.toString();
+    document.getElementById("resultadoMedia").textContent = "Média: " + media.toString();
+    document.getElementById("resultadoVariancia").textContent = "Variância: " + variancia;
+    document.getElementById("resultadoDesvioPadrao").textContent = "Desvio Padrão: " + desvioPadrao.toString();
     
     var resultadoCampo = document.querySelector(".result");
     var resultadoDetails = document.querySelector(".result-details");
