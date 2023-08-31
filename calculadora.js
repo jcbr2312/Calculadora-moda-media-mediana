@@ -53,7 +53,7 @@ function calcularModa(numeros) {
         }
     });
 
-    return moda;
+    return 0;
 }
 
 function calcularVariancia(numeros, media) {
