@@ -67,7 +67,7 @@ function calcularVariancia(numeros, media) {
 function exibirResultado(moda, mediana, media, variancia, desvioPadrao) {
     var modaText = "";
     
-    if (moda.length > 0) {
+    if (moda.length > 1) {
         modaText = "Moda: " + moda.join(", ");
     } else {
         modaText = "Não há moda";
